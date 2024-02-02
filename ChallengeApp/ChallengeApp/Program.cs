@@ -1,4 +1,4 @@
-﻿
+﻿// zadanie domowe dzien 5 
 
 int number = 45788;
 string numberAsString = number.ToString();
