@@ -1,72 +1,40 @@
-﻿// zadanie domowe dzien 5 
+﻿
 
-int number = 45788;
-string numberAsString = number.ToString();
-char[] letters = numberAsString.ToCharArray();
+using ChallengeApp;
 
-int counter0 = 0;
-int counter1 = 0;
-int counter2 = 0;
-int counter3 = 0;
-int counter4 = 0;
-int counter5 = 0;
-int counter6 = 0;
-int counter7 = 0;
-int counter8 = 0;
-int counter9 = 0;
+Employee employee1 = new Employee("Kamil", "Nowak", 25);
+Employee employee2 = new Employee("Ania", "Kowalska", 28);
+Employee employee3 = new Employee("Darek", "Zysk", 30);
 
-foreach (char letter in letters)
+employee1.Addscore(3);
+employee1.Addscore(2);
+employee1.Addscore(1);
+
+employee2.Addscore(4);
+employee2.Addscore(2);
+employee2.Addscore(3);
+
+employee3.Addscore(2);
+employee3.Addscore(2);
+employee3.Addscore(1);
+
+List<Employee> employees = new List<Employee>()
 {
-    if (letter == '0')
+    employee1, employee2, employee3
+};
+
+int maxResult = 0;
+Employee employeeWithMaxResult = null;
+
+foreach (var employee in employees)
+{
+    if (employee.maxResult > maxResult)
     {
-        counter0++;
-    }
-    else if (letter == '1')
-    {
-        counter1++;
-    }
-    else if (letter == '2')
-    {
-        counter2++;
-    }
-    else if (letter == '3')
-    {
-        counter3++;
-    }
-    else if (letter == '4')
-    {
-        counter4++;
-    }
-    else if (letter == '5')
-    {
-        counter5++;
-    }
-    else if (letter == '6')
-    {
-        counter6++;
-    }
-    else if (letter == '7')
-    {
-        counter7++;
-    }
-    else if (letter == '8')
-    {
-        counter8++;
-    }
-    else if (letter == '9')
-    {
-        counter9++;
+        employeeWithMaxResult = employee;
+        maxResult = employee.maxResult;
     }
 }
-    Console.WriteLine("Digi 0 was used = " + counter0);
-    Console.WriteLine("Digi 1 was used = " + counter1);
-    Console.WriteLine("Digi 2 was used = " + counter2);
-    Console.WriteLine("Digi 3 was used = " + counter3);
-    Console.WriteLine("Digi 4 was used = " + counter4);
-    Console.WriteLine("Digi 5 was used = " + counter5);
-    Console.WriteLine("Digi 6 was used = " + counter6);
-    Console.WriteLine("Digi 7 was used = " + counter7);
-    Console.WriteLine("Digi 8 was used = " + counter8);
-    Console.WriteLine("Digi 9 was used = " + counter9);
 
-    Console.ReadLine();
+Console.WriteLine("Pracownik z najwyzsza liczba punktow: " + employeeWithMaxResult.Name + " " +
+    employeeWithMaxResult.Surname + " " + 
+    employeeWithMaxResult.age + " " + " lat " + "z wynikiem" + " " + maxResult);
